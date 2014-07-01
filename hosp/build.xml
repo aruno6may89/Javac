@@ -1,0 +1,36 @@
+<project name="First Project" default="jar">
+	<!--target name ="target1">
+		<echo>this is my first project</echo>
+	
+	</target>
+	
+	<target name="target2" depends="target1">
+		<echo>i am happy</echo>
+		
+	</target-->
+	<target name="delete">
+		<delete dir="builds/classes"/>
+	</target>
+	<target name="init" depends="delete" >
+		<mkdir dir="builds/classes"/>
+	</target>
+	<target name="compile" depends="init">
+		
+		<javac includeantruntime="false"
+			srcdir="src"
+			destdir="builds/classes"
+		/>	
+		
+	</target>
+	
+	<target name ="jar" depends="compile">
+		<jar destfile="builds/jar/app-1.1.jar" basedir="builds/classes"/>	
+	</target>
+	<!--target name="create">
+		<mkdir dir ="test"/>
+	</target>
+	<target name="copy" depends="create">
+		<copy file="copydemo/Untitled.txt" todir="test1/test2/"/>
+	</target-->
+
+</project>
